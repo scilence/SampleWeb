@@ -26,8 +26,7 @@ namespace SampleWeb.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=C:\\Users\\E8D_User\\Documents\\Visual Studio 2010\\Projects\\SampleWeb\\DBS" +
-            "ample.db3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|DBSample.db3")]
         public string connectionStrings {
             get {
                 return ((string)(this["connectionStrings"]));

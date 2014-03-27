@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
-        歡迎使用 ASP.NET!
+        歡迎使用 Sample Web
     </h2>
     <p>
         若要進一步了解 ASP.NET，請造訪 <a href="http://www.asp.net" title="ASP.NET 網站">www.asp.net</a>。

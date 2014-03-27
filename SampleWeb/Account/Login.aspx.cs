@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
-using SampleWeb.Controllers;
+using SampleWeb.DataAccess;
 using SampleWeb.Models;
 
 namespace SampleWeb.Account
@@ -18,10 +18,19 @@ namespace SampleWeb.Account
         }
 
         [WebMethod]
-        public static Result Login(string account, string password)
+        public static Result LoginAccount(string account, string password)
         {
             Result result = new Result();
+
+            if (string.IsNullOrEmpty(account) || string.IsNullOrEmpty(password))
+            {
+                result.IsSuccess = false;
+                result.Message = "必須填寫 帳號/密碼";
+                return result;
+            }
+
             result.IsSuccess = LoginController.Login(account, password);
+            result.Message = result.IsSuccess ? "登入成功" : "登入失敗";
 
             return result;
         }

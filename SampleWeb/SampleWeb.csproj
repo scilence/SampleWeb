@@ -33,14 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="linq2db">
-      <HintPath>..\packages\linq2db.1.0.2\lib\net40\linq2db.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -48,13 +45,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.SQLite">
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SQLite, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.92.0\lib\net40\System.Data.SQLite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.EF6">
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.EF6.1.0.92.0\lib\net40\System.Data.SQLite.EF6.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.SQLite.Linq">
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.92.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.92.0\lib\net40\System.Data.SQLite.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Extensions" />
@@ -75,30 +73,39 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <None Include="App_Data\DBSample.db3" />
-    <None Include="Models\DBSample.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DBSample1.generated.cs</LastGenOutput>
-    </None>
-    <Content Include="Styles\Site.css" />
-    <Content Include="Default.aspx" />
-    <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.4.1.js" />
-    <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\jquery-2.1.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\Login.js" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="x86\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="App_Data\DBSample.db3" />
+    <Content Include="sqlite3.def" />
+    <Content Include="sqlite3.dll" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Scripts\angular.min.js.map" />
+    <None Include="Scripts\jquery-2.1.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -136,7 +143,8 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="DataAccess\LoginController.cs" />
+    <Compile Include="DataAccess\RegisterController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,11 +155,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DBSample1.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DBSample.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Helpers\CurrentUser.cs" />
+    <Compile Include="Helpers\WebSettings.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -173,29 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="LinqToDB.Templates\DataAnnotations.ttinclude" />
-    <None Include="LinqToDB.Templates\DataModel.ttinclude" />
-    <None Include="LinqToDB.Templates\EditableObject.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.Access.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.DB2.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.Firebird.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.Informix.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.MySql.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.Oracle.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.PostgreSQL.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.SqlCe.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.SQLite.Tools.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.SQLite.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.SqlServer.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.Sybase.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.Tools.ttinclude" />
-    <None Include="LinqToDB.Templates\LinqToDB.ttinclude" />
-    <None Include="LinqToDB.Templates\NotifyPropertyChanged.ttinclude" />
-    <None Include="LinqToDB.Templates\PluralizationService.ttinclude" />
-    <None Include="LinqToDB.Templates\T4Model.ttinclude" />
-    <None Include="LinqToDB.Templates\Validation.ttinclude" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
