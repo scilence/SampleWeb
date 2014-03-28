@@ -2,6 +2,7 @@
     CodeBehind="Register.aspx.cs" Inherits="SampleWeb.Account.Register" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <script type="text/javascript" src="<%= ResolveClientUrl("~/Scripts/Register.js") %>"></script>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="false" OnCreatedUser="RegisterUser_CreatedUser">
@@ -62,7 +63,7 @@
                             </p>
                         </fieldset>
                         <p class="submitButton">
-                            <asp:Button ID="CreateUserButton" runat="server" CommandName="MoveNext" Text="建立使用者" 
+                            <asp:Button ID="CreateUserButton" runat="server" Text="建立使用者" 
                                  ValidationGroup="RegisterUserValidationGroup"/>
                         </p>
                     </div>

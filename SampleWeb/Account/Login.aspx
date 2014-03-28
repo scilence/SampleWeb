@@ -2,7 +2,7 @@
     CodeBehind="Login.aspx.cs" Inherits="SampleWeb.Account.Login" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
-    <script type="text/javascript" src="../Scripts/Login.js"></script>
+    <script type="text/javascript" src="<%= ResolveClientUrl("~/Scripts/Login.js") %>"></script>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
@@ -42,8 +42,7 @@
                     </p>
                 </fieldset>
                 <p class="submitButton">
-                    <asp:Button ID="LoginButton" runat="server" Text="登入" ValidationGroup="LoginUserValidationGroup"/>
-                    <button id="btn_login">登入</button>
+                    <asp:Button ID="LoginButton" runat="server" Text="登入" ValidationGroup="LoginUserValidationGroup" />
                 </p>
             </div>
         </LayoutTemplate>

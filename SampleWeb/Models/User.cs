@@ -10,6 +10,10 @@ namespace SampleWeb.Models
     [Table(Name = "User")]
     public class User : BaseModel
     {
+
+        [Column(Name = "ID", IsPrimaryKey=true)]
+        public int ID { get; set; }
+
         [Column(Name = "Account")]
         public string Account { get; set; }
 
@@ -22,14 +26,41 @@ namespace SampleWeb.Models
 
         #region Methods
 
-        public static User GetUser(DataContext context, string account)
+        public static User Get(DataContext context, string account)
         {
-            return context.GetTable<User>().First(item => item.Account == account);
+            var users = context.GetTable<User>();
+            var query = from user in users
+                        where user.Account == account
+                        select user;
+
+            foreach (var it in query)
+            {
+                return it;
+            }
+
+            return null;
         }
 
-        public static User GetUser(DataContext context, string account, string password)
+        public static User Get(DataContext context, string account, string password)
         {
-            return context.GetTable<User>().First(item => item.Account == account && item.Password == password);
+            var users = context.GetTable<User>();
+            var query = from user in users
+                        where user.Account == account && user.Password == password
+                        select user;
+
+            foreach (var it in query)
+            {
+                return it;
+            }
+
+            return null;
+        }
+
+        public static void Add(DataContext context, string account, string password, string email = "")
+        {
+            var users = context.GetTable<User>();
+            var user = new User() { Account = account, Password = password, Email = email, ID=0 };
+            users.InsertOnSubmit(user);
         }
 
         #endregion

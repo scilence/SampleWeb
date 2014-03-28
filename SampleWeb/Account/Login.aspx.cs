@@ -14,10 +14,10 @@ namespace SampleWeb.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
+            RegisterHyperLink.NavigateUrl = "Register.aspx?ReturnUrl=" + HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
         }
 
-        [WebMethod]
+        [WebMethod(EnableSession=true)]
         public static Result LoginAccount(string account, string password)
         {
             Result result = new Result();
@@ -28,11 +28,17 @@ namespace SampleWeb.Account
                 result.Message = "必須填寫 帳號/密碼";
                 return result;
             }
-
-            result.IsSuccess = LoginController.Login(account, password);
+            
+            result.IsSuccess = AccountController.Login(account, password);
             result.Message = result.IsSuccess ? "登入成功" : "登入失敗";
 
             return result;
+        }
+
+        [WebMethod]
+        public static string GetDate()
+        {
+            return DateTime.Now.ToString();
         }
     }
 }

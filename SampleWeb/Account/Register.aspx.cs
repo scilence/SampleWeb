@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using SampleWeb.Models;
 using SampleWeb.DataAccess;
+using System.Web.Services;
 
 namespace SampleWeb.Account
 {
@@ -30,11 +31,18 @@ namespace SampleWeb.Account
             //Response.Redirect(continueUrl);
         }
 
+        [WebMethod]
         public static Result AddUser(string account, string password, string email)
         {
             Result result = new Result();
 
-            RegisterController.AddUser(new User() { Account = account, Password = password, Email = email });
+            result.IsSuccess = AccountController.AddUser(account, password, email);
+            result.Message = result.IsSuccess ? "註冊成功" : "註冊失敗";
+            if (!result.IsSuccess)
+            {
+                return result;
+            }
+            HttpContext.Current.Response.Redirect(@"~\Default.aspx");
 
             return result;
         }
