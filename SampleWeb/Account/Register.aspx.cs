@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using SampleWeb.Models;
-using SampleWeb.DataAccess;
+using SampleWeb.Entities;
 using System.Web.Services;
+using SampleWeb.Models;
 
 namespace SampleWeb.Account
 {
@@ -36,7 +36,7 @@ namespace SampleWeb.Account
         {
             Result result = new Result();
 
-            result.IsSuccess = AccountController.AddUser(account, password, email);
+            result.IsSuccess = UsrAccount.AddUser(account, password, email);
             result.Message = result.IsSuccess ? "註冊成功" : "註冊失敗";
             if (!result.IsSuccess)
             {

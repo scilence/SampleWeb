@@ -5,56 +5,54 @@ using System.Web;
 using System.Data.SQLite;
 using SampleWeb.Helpers;
 using System.Data.Linq;
-using SampleWeb.Models;
+using SampleWeb.Entities;
 
-namespace SampleWeb.DataAccess
+namespace SampleWeb.Models
 {
-    public class AccountController
+    public class UsrAccount
     {
         public static bool Login(string account, string password)
         {
-            using (var connection = new SQLiteConnection(WebSettings.ConnectionString))
-            using (var context = new DataContext(connection))
-            {
+            LogHelper.Logger.Info(string.Format("Login: {0}", account));
+            var result = DBHelper.Run(context => {
                 var user = User.Get(context, account, password);
-                connection.Close();
 
                 if (user == null)
                 {
-                    return false;
+                    return new Result() { IsSuccess = false };
                 }
                 else
                 {
                     CurrentUser.Save(user);
-                    return true;
+                    return new Result() { IsSuccess = true };
                 }
+            });
 
-            }
+            return result.IsSuccess;
         }
 
         public static void Logout()
         {
+            LogHelper.Logger.Info(string.Format("Logout: {0}", CurrentUser.Get().Account));
             CurrentUser.Clear();
         }
 
         public static bool AddUser(string account, string password, string email = "")
         {
-            using (var connection = new SQLiteConnection(WebSettings.ConnectionString))
-            using (var context = new DataContext(connection))
+            var result = DBHelper.Run(context =>
             {
                 var user = User.Get(context, account);
                 if (user != null)
                 {
-                    return false;
+                    return new Result() { IsSuccess = false };
                 }
 
                 User.Add(context, account, password, email);
                 context.SubmitChanges();
-                connection.Close();
+                return new Result() { IsSuccess = true };
+            });
 
-                return true;
-
-            }
+            return result.IsSuccess;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Services;
-using SampleWeb.DataAccess;
+using SampleWeb.Entities;
 using SampleWeb.Models;
 
 namespace SampleWeb.Account
@@ -28,8 +28,8 @@ namespace SampleWeb.Account
                 result.Message = "必須填寫 帳號/密碼";
                 return result;
             }
-            
-            result.IsSuccess = AccountController.Login(account, password);
+
+            result.IsSuccess = UsrAccount.Login(account, password);
             result.Message = result.IsSuccess ? "登入成功" : "登入失敗";
 
             return result;

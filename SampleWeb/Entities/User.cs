@@ -5,14 +5,14 @@ using System.Web;
 using System.Data.Linq.Mapping;
 using System.Data.Linq;
 
-namespace SampleWeb.Models
+namespace SampleWeb.Entities
 {
     [Table(Name = "User")]
-    public class User : BaseModel
+    public class User
     {
 
         [Column(Name = "ID", IsPrimaryKey=true)]
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         [Column(Name = "Account")]
         public string Account { get; set; }
@@ -59,7 +59,7 @@ namespace SampleWeb.Models
         public static void Add(DataContext context, string account, string password, string email = "")
         {
             var users = context.GetTable<User>();
-            var user = new User() { Account = account, Password = password, Email = email, ID=0 };
+            var user = new User() { Account = account, Password = password, Email = email, ID= Guid.NewGuid().ToString() };
             users.InsertOnSubmit(user);
         }
 

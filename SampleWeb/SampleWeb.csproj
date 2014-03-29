@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -105,6 +108,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="log4net.config" />
     <None Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-2.1.0.min.map" />
   </ItemGroup>
@@ -144,8 +148,9 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="DataAccess\AccountController.cs" />
-    <Compile Include="DataAccess\RegisterController.cs" />
+    <Compile Include="Helpers\DBHelper.cs" />
+    <Compile Include="Helpers\LogHelper.cs" />
+    <Compile Include="Models\UsrAccount.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,9 +163,8 @@
     </Compile>
     <Compile Include="Helpers\CurrentUser.cs" />
     <Compile Include="Helpers\WebSettings.cs" />
-    <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Entities\Result.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

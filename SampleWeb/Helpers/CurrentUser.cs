@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using SampleWeb.Models;
+using SampleWeb.Entities;
 
 namespace SampleWeb.Helpers
 {
