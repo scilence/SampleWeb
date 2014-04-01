@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.Services;
 using SampleWeb.Entities;
 using SampleWeb.Models;
+using System.Web.Security;
 
 namespace SampleWeb.Account
 {
@@ -31,7 +32,8 @@ namespace SampleWeb.Account
 
             result.IsSuccess = UsrAccount.Login(account, password);
             result.Message = result.IsSuccess ? "登入成功" : "登入失敗";
-
+            FormsAuthentication.SetAuthCookie(account, false);
+            //HttpContext.Current.Response.Redirect(@"~\Memo\Memo.aspx");
             return result;
         }
 

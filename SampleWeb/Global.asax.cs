@@ -42,7 +42,6 @@ namespace SampleWeb
             // 注意: 只有在 Web.config 檔將 sessionstate 模式設定為 InProc 時，
             // 才會引發 Session_End 事件。如果將工作階段模式設定為 StateServer 
             // 或 SQLServer，就不會引發這個事件。
-
         }
 
     }

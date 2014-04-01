@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SampleWeb.Helpers;
 
 namespace SampleWeb
 {
@@ -11,7 +12,14 @@ namespace SampleWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (CurrentUser.Get() != null)
+                {
+                    NavigationMenu.Items.Add(new MenuItem("Memo", "Memo", "", @"~\Memo\Memo.aspx"));
+                }
+                //
+            }
         }
     }
 }

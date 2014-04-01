@@ -2,16 +2,15 @@
     CodeBehind="Default.aspx.cs" Inherits="SampleWeb._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+    <script type="text/javascript" src="<%= ResolveClientUrl("~/Scripts/Default.js") %>"></script>
+    <script type="text/javascript" src="<%= ResolveClientUrl("~/Scripts/angular.min.js") %>"></script>
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <h2>
         歡迎使用 Sample Web
     </h2>
     <p>
-        若要進一步了解 ASP.NET，請造訪 <a href="http://www.asp.net" title="ASP.NET 網站">www.asp.net</a>。
-    </p>
-    <p>
-        您也可以尋找 <a href="http://go.microsoft.com/fwlink/?LinkID=152368"
-            title="MSDN ASP.NET 文件">MSDN 上有關 ASP.NET 的文件</a>。
+        <h3>1. 增加sqlite</h3>
+        <h3>2. 增加logger</h3>
     </p>
 </asp:Content>

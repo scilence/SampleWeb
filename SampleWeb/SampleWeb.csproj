@@ -76,14 +76,20 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Memo\Memo.aspx" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-2.1.0-vsdoc.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
     <Content Include="Scripts\Login.js" />
+    <Content Include="Scripts\Memo.js" />
     <Content Include="Scripts\Register.js" />
+    <Content Include="Styles\bootstrap-theme.min.css" />
+    <Content Include="Styles\bootstrap.min.css" />
+    <Content Include="Styles\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="x64\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -111,6 +117,11 @@
     <Content Include="log4net.config" />
     <None Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-2.1.0.min.map" />
+    <None Include="Styles\bootstrap-theme.css.map" />
+    <None Include="Styles\bootstrap.css.map" />
+    <None Include="Styles\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="Styles\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="Styles\fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -150,6 +161,13 @@
     </Compile>
     <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
+    <Compile Include="Memo\Memo.aspx.cs">
+      <DependentUpon>Memo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Memo\Memo.aspx.designer.cs">
+      <DependentUpon>Memo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\UsrAccount.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
