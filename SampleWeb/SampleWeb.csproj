@@ -81,6 +81,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.0-vsdoc.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
@@ -90,12 +91,8 @@
     <Content Include="Styles\bootstrap-theme.min.css" />
     <Content Include="Styles\bootstrap.min.css" />
     <Content Include="Styles\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="x64\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="x86\SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="x64\SQLite.Interop.dll" />
+    <Content Include="x86\SQLite.Interop.dll" />
     <None Include="App_Data\DBSample.db3" />
     <Content Include="sqlite3.def" />
     <Content Include="sqlite3.dll" />
@@ -159,6 +156,7 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Memo.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Memo\Memo.aspx.cs">
@@ -168,7 +166,7 @@
     <Compile Include="Memo\Memo.aspx.designer.cs">
       <DependentUpon>Memo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\UsrAccount.cs" />
+    <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -183,6 +181,7 @@
     <Compile Include="Helpers\WebSettings.cs" />
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Models\UserMemo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

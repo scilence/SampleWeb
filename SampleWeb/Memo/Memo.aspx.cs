@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using SampleWeb.Entities;
+using SampleWeb.Models;
+using System.Web.Services;
 
 namespace SampleWeb.Memo
 {
@@ -13,5 +16,17 @@ namespace SampleWeb.Memo
         {
 
         }
+
+        [WebMethod]
+        public static Result Confirm(SampleWeb.Entities.Memo memo)
+        {
+            bool isSuccess = UserMemo.AddMemo(memo);
+
+            Result result = new Result();
+            result.IsSuccess = isSuccess;
+            result.Message = isSuccess ? "新增成功" : "新增失敗";
+            return result;
+        }
+
     }
 }

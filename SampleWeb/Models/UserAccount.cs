@@ -9,7 +9,7 @@ using SampleWeb.Entities;
 
 namespace SampleWeb.Models
 {
-    public class UsrAccount
+    public class UserAccount
     {
         public static bool Login(string account, string password)
         {

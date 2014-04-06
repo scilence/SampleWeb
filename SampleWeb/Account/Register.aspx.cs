@@ -36,7 +36,7 @@ namespace SampleWeb.Account
         {
             Result result = new Result();
 
-            result.IsSuccess = UsrAccount.AddUser(account, password, email);
+            result.IsSuccess = UserAccount.AddUser(account, password, email);
             result.Message = result.IsSuccess ? "註冊成功" : "註冊失敗";
             if (!result.IsSuccess)
             {

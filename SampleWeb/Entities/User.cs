@@ -7,10 +7,12 @@ using System.Data.Linq;
 
 namespace SampleWeb.Entities
 {
+    /// <summary>
+    /// 使用者
+    /// </summary>
     [Table(Name = "User")]
     public class User
     {
-
         [Column(Name = "ID", IsPrimaryKey=true)]
         public string ID { get; set; }
 

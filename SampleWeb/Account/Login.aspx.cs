@@ -30,7 +30,7 @@ namespace SampleWeb.Account
                 return result;
             }
 
-            result.IsSuccess = UsrAccount.Login(account, password);
+            result.IsSuccess = UserAccount.Login(account, password);
             result.Message = result.IsSuccess ? "登入成功" : "登入失敗";
             FormsAuthentication.SetAuthCookie(account, false);
             //HttpContext.Current.Response.Redirect(@"~\Memo\Memo.aspx");
