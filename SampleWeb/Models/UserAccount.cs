@@ -19,12 +19,12 @@ namespace SampleWeb.Models
 
                 if (user == null)
                 {
-                    return new Result() { IsSuccess = false };
+                    return new BaseResult() { IsSuccess = false };
                 }
                 else
                 {
                     CurrentUser.Save(user);
-                    return new Result() { IsSuccess = true };
+                    return new BaseResult() { IsSuccess = true };
                 }
             });
 
@@ -44,12 +44,12 @@ namespace SampleWeb.Models
                 var user = User.Get(context, account);
                 if (user != null)
                 {
-                    return new Result() { IsSuccess = false };
+                    return new BaseResult() { IsSuccess = false };
                 }
 
                 User.Add(context, account, password, email);
                 context.SubmitChanges();
-                return new Result() { IsSuccess = true };
+                return new BaseResult() { IsSuccess = true };
             });
 
             return result.IsSuccess;

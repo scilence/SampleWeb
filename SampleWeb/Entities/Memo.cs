@@ -13,22 +13,8 @@ namespace SampleWeb.Entities
     [Table(Name = "Memo")]
     public class Memo
     {
-        private int mID;
-        [Column(Name="ID", Storage = "mID", AutoSync = AutoSync.OnInsert, DbType = "Int NOT NULL IDENTITY", IsPrimaryKey = true)]
-        public int ID
-        {
-            get
-            {
-                return this.mID;
-            }
-            set
-            {
-                if ((this.mID != value))
-                {
-                    this.mID = value;
-                }
-            }
-        }
+        [Column(Name = "ID", IsPrimaryKey = true)]
+        public string ID { get; set; }
 
         [Column(Name = "Title")]
         public string Title { get; set; }
@@ -51,7 +37,7 @@ namespace SampleWeb.Entities
 
         #region Methods
 
-        public static Memo Get(DataContext context, int id)
+        public static Memo Get(DataContext context, string id)
         {
             var memos = context.GetTable<Memo>();
             var query = from memo in memos
@@ -76,13 +62,9 @@ namespace SampleWeb.Entities
 
         public static void Add(DataContext context, Memo memo)
         {
-            //memo.ID = Guid.NewGuid().ToString();
-            
+            memo.ID = Guid.NewGuid().ToString();
 
             var memos = context.GetTable<Memo>();
-
-            
-
             memos.InsertOnSubmit(memo);
         }
 

@@ -5,8 +5,9 @@ using System.Web;
 
 namespace SampleWeb.Entities
 {
-    public class DataResult<T> : BaseResult
+    public class BaseResult
     {
-        public T Data { get; set; }
+        public bool IsSuccess { get; set; }
+        public string Message { get; set; }
     }
 }

@@ -18,13 +18,14 @@ namespace SampleWeb.Memo
         }
 
         [WebMethod]
-        public static Result Confirm(SampleWeb.Entities.Memo memo)
+        public static DataResult<SampleWeb.Entities.Memo> Confirm(SampleWeb.Entities.Memo memo)
         {
             bool isSuccess = UserMemo.AddMemo(memo);
 
-            Result result = new Result();
+            DataResult<SampleWeb.Entities.Memo> result = new DataResult<SampleWeb.Entities.Memo>();
             result.IsSuccess = isSuccess;
             result.Message = isSuccess ? "新增成功" : "新增失敗";
+            result.Data = memo;
             return result;
         }
 

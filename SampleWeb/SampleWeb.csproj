@@ -157,6 +157,7 @@
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Memo.cs" />
+    <Compile Include="Entities\BaseResult.cs" />
     <Compile Include="Helpers\DBHelper.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Memo\Memo.aspx.cs">

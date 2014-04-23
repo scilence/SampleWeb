@@ -19,9 +19,9 @@ namespace SampleWeb.Account
         }
 
         [WebMethod(EnableSession=true)]
-        public static Result LoginAccount(string account, string password)
+        public static BaseResult LoginAccount(string account, string password)
         {
-            Result result = new Result();
+            BaseResult result = new BaseResult();
 
             if (string.IsNullOrEmpty(account) || string.IsNullOrEmpty(password))
             {

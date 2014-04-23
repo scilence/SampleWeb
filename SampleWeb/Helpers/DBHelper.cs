@@ -12,7 +12,7 @@ namespace SampleWeb.Helpers
     {
         private DBHelper() { }
 
-        public static Result Run(Func<DataContext, Result> func)
+        public static BaseResult Run(Func<DataContext, BaseResult> func)
         {
             using (var connection = new SQLiteConnection(WebSettings.ConnectionString))
             using (var context = new DataContext(connection))
@@ -24,7 +24,7 @@ namespace SampleWeb.Helpers
                 catch (Exception e)
                 {
                     LogHelper.Logger.Debug("DBHelpe", e);
-                    return new Result() { IsSuccess = false, Message = e.Message };
+                    return new BaseResult() { IsSuccess = false, Message = e.Message };
                 }
                 finally
                 {

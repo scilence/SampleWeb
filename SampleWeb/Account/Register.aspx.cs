@@ -32,9 +32,9 @@ namespace SampleWeb.Account
         }
 
         [WebMethod]
-        public static Result AddUser(string account, string password, string email)
+        public static BaseResult AddUser(string account, string password, string email)
         {
-            Result result = new Result();
+            BaseResult result = new BaseResult();
 
             result.IsSuccess = UserAccount.AddUser(account, password, email);
             result.Message = result.IsSuccess ? "註冊成功" : "註冊失敗";

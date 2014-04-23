@@ -17,7 +17,7 @@ namespace SampleWeb.Models
                 memo.CreatedTime = DateTime.Now;
                 SampleWeb.Entities.Memo.Add(context, memo);
                 context.SubmitChanges();
-                return new Result() { IsSuccess = true };
+                return new BaseResult() { IsSuccess = true };
             });
 
             return result.IsSuccess;
